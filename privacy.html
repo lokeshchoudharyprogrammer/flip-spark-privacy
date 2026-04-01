@@ -3,229 +3,692 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Flip Spark Privacy Policy</title>
-
+<title>Flip Spark — Privacy Policy</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-body {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-line-height: 1.6;
-margin: 0;
-padding: 0;
-background: #f7f9fc;
-color: #333;
-}
+  :root {
+    --bg: #0b0e1a;
+    --surface: #111627;
+    --surface2: #161d30;
+    --border: rgba(255,255,255,0.07);
+    --accent: #ff6b35;
+    --accent2: #ffb347;
+    --accent3: #7c3aed;
+    --text: #e8eaf0;
+    --muted: #7a84a0;
+    --glow: rgba(255,107,53,0.15);
+  }
 
-.container {
-max-width: 900px;
-margin: auto;
-padding: 40px 20px;
-background: white;
-box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-border-radius: 12px;
-margin-top: 40px;
-margin-bottom: 40px;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-h1 {
-color: #4F46E5;
-font-size: 32px;
-margin-bottom: 10px;
-}
+  html { scroll-behavior: smooth; }
 
-h2 {
-color: #111827;
-margin-top: 30px;
-}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
-p {
-color: #4B5563;
-}
+  /* Animated background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(255,107,53,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(124,58,237,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(255,179,71,0.03) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-ul {
-color: #4B5563;
-}
+  /* Noise texture */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
 
-.header {
-text-align: center;
-margin-bottom: 30px;
-}
+  /* Floating particles */
+  .particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    animation: float-up linear infinite;
+  }
+  @keyframes float-up {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+  }
 
-.badge {
-display: inline-block;
-background: #EEF2FF;
-color: #4F46E5;
-padding: 6px 12px;
-border-radius: 20px;
-font-size: 14px;
-margin-top: 10px;
-}
+  /* Layout */
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
 
-.footer {
-margin-top: 40px;
-padding-top: 20px;
-border-top: 1px solid #eee;
-text-align: center;
-color: #6B7280;
-}
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 64px;
+    animation: fade-down 0.8s ease both;
+  }
+  @keyframes fade-down {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
+  .logo-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .logo-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 0 30px var(--glow), 0 8px 20px rgba(0,0,0,0.4);
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 30px var(--glow), 0 8px 20px rgba(0,0,0,0.4); }
+    50% { box-shadow: 0 0 50px rgba(255,107,53,0.3), 0 8px 30px rgba(0,0,0,0.5); }
+  }
+
+  .logo-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #fff 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+
+  .header-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(36px, 6vw, 54px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 30%, var(--muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header-sub {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+  }
+  .header-sub .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 48px;
+    animation: fade-up 0.8s 0.2s ease both;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .toc-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+  }
+  .toc-item {
+    color: var(--muted);
+    font-size: 13.5px;
+    text-decoration: none;
+    padding: 7px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .toc-item:hover {
+    background: rgba(255,107,53,0.1);
+    color: var(--accent);
+  }
+  .toc-item::before {
+    content: '→';
+    font-size: 11px;
+    opacity: 0.5;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+    animation: fade-up 0.6s ease both;
+  }
+  .section:hover {
+    border-color: rgba(255,107,53,0.2);
+    transform: translateY(-2px);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .section-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    background: rgba(255,107,53,0.1);
+    border: 1px solid rgba(255,107,53,0.2);
+    padding: 3px 10px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .section-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    flex: 1;
+  }
+
+  .section-body {
+    padding: 24px 28px;
+  }
+
+  .section-body p {
+    color: #9ba3ba;
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 14px;
+    font-weight: 300;
+  }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* Tags / Pills */
+  .tag-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .tag {
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid;
+    transition: all 0.2s;
+  }
+  .tag:hover { transform: scale(1.04); }
+  .tag-orange { background: rgba(255,107,53,0.1); color: #ff8c60; border-color: rgba(255,107,53,0.25); }
+  .tag-purple { background: rgba(124,58,237,0.1); color: #a78bfa; border-color: rgba(124,58,237,0.25); }
+  .tag-green  { background: rgba(34,197,94,0.1);  color: #4ade80; border-color: rgba(34,197,94,0.25); }
+  .tag-blue   { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.25); }
+  .tag-yellow { background: rgba(250,204,21,0.1); color: #fde047; border-color: rgba(250,204,21,0.25); }
+  .tag-pink   { background: rgba(236,72,153,0.1); color: #f472b6; border-color: rgba(236,72,153,0.25); }
+
+  /* No-collect banner */
+  .no-collect {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(34,197,94,0.08);
+    border: 1px solid rgba(34,197,94,0.2);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    color: #4ade80;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* Link */
+  a.ext-link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,107,53,0.3);
+    transition: border-color 0.2s;
+  }
+  a.ext-link:hover { border-color: var(--accent); }
+
+  /* Contact card */
+  .contact-card {
+    background: linear-gradient(135deg, rgba(255,107,53,0.08), rgba(124,58,237,0.08));
+    border: 1px solid rgba(255,107,53,0.2);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14.5px;
+    color: #9ba3ba;
+  }
+  .contact-row strong { color: #fff; font-weight: 500; min-width: 80px; }
+  .contact-row span { color: var(--accent2); }
+
+  /* Footer */
+  .footer {
+    margin-top: 64px;
+    text-align: center;
+    animation: fade-up 0.8s 0.4s ease both;
+  }
+  .footer-inner {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .footer-copy {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .footer-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    opacity: 0.4;
+  }
+
+  /* Section stagger animation */
+  .section:nth-child(1)  { animation-delay: 0.1s; }
+  .section:nth-child(2)  { animation-delay: 0.15s; }
+  .section:nth-child(3)  { animation-delay: 0.2s; }
+  .section:nth-child(4)  { animation-delay: 0.25s; }
+  .section:nth-child(5)  { animation-delay: 0.3s; }
+  .section:nth-child(6)  { animation-delay: 0.35s; }
+  .section:nth-child(7)  { animation-delay: 0.4s; }
+  .section:nth-child(8)  { animation-delay: 0.45s; }
+  .section:nth-child(9)  { animation-delay: 0.5s; }
+  .section:nth-child(10) { animation-delay: 0.55s; }
+  .section:nth-child(11) { animation-delay: 0.6s; }
+  .section:nth-child(12) { animation-delay: 0.65s; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: rgba(255,107,53,0.3); border-radius: 3px; }
+
+  @media (max-width: 600px) {
+    .wrapper { padding: 32px 16px 60px; }
+    .section-header { padding: 18px 20px; }
+    .section-body { padding: 18px 20px; }
+    .toc { padding: 20px; }
+    .toc-grid { grid-template-columns: 1fr 1fr; }
+  }
 </style>
-
 </head>
-
 <body>
 
-<div class="container">
+<!-- Particles -->
+<div class="particles" id="particles"></div>
 
-<div class="header">
-<h1>Flip Spark</h1>
-<div class="badge">Privacy Policy</div>
-<p>Last Updated: March 29, 2026</p>
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-wrap">
+      <div class="logo-icon">🦊</div>
+      <span class="logo-name">Flip Spark</span>
+    </div>
+    <h1 class="header-title">Privacy Policy</h1>
+    <div class="header-sub">
+      <span class="dot"></span>
+      Last Updated: March 29, 2026
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <p style="color:#7a84a0;font-size:15px;line-height:1.8;margin-bottom:40px;text-align:center;max-width:620px;margin-left:auto;margin-right:auto;animation:fade-up 0.7s 0.1s ease both;">
+    Flip Spark — Memory Matching Game for Kids respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our mobile application.
+  </p>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <div class="toc-grid">
+      <a href="#s1" class="toc-item">Information We Collect</a>
+      <a href="#s2" class="toc-item">Auto-Collected Info</a>
+      <a href="#s3" class="toc-item">Children's Privacy</a>
+      <a href="#s4" class="toc-item">Firebase Services</a>
+      <a href="#s5" class="toc-item">Ads</a>
+      <a href="#s6" class="toc-item">Local Storage</a>
+      <a href="#s7" class="toc-item">Data Sharing</a>
+      <a href="#s8" class="toc-item">Security</a>
+      <a href="#s9" class="toc-item">Parent Controls</a>
+      <a href="#s10" class="toc-item">User Rights</a>
+      <a href="#s11" class="toc-item">Policy Changes</a>
+      <a href="#s12" class="toc-item">Contact</a>
+    </div>
+  </div>
+
+  <!-- Sections -->
+  <div id="s1" class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <div class="section-icon" style="background:rgba(255,107,53,0.12);">🔍</div>
+      <span class="section-title">Information We Collect</span>
+    </div>
+    <div class="section-body">
+      <div class="no-collect">✅ &nbsp;We do not collect personal information by default</div>
+      <p>Flip Spark does not collect personal information such as your name or email address — unless voluntarily provided for optional features such as a leaderboard nickname.</p>
+    </div>
+  </div>
+
+  <div id="s2" class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <div class="section-icon" style="background:rgba(255,179,71,0.12);">📊</div>
+      <span class="section-title">Automatically Collected Information</span>
+    </div>
+    <div class="section-body">
+      <p>We may collect limited non-personal information to improve app performance and user experience:</p>
+      <div class="tag-grid">
+        <span class="tag tag-yellow">App Version</span>
+        <span class="tag tag-yellow">Country (Leaderboard)</span>
+        <span class="tag tag-yellow">Gameplay Analytics</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="s3" class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <div class="section-icon" style="background:rgba(34,197,94,0.12);">🛡️</div>
+      <span class="section-title">Children's Privacy</span>
+    </div>
+    <div class="section-body">
+      <p>Flip Spark is designed for kids and family-friendly audiences. We take children's privacy very seriously and fully comply with:</p>
+      <div class="tag-grid">
+        <span class="tag tag-green">COPPA</span>
+        <span class="tag tag-green">GDPR</span>
+        <span class="tag tag-green">Google Play Families Policy</span>
+      </div>
+      <p style="margin-top:14px;">We do not knowingly collect personal data from children under 13.</p>
+    </div>
+  </div>
+
+  <div id="s4" class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <div class="section-icon" style="background:rgba(250,204,21,0.12);">🔥</div>
+      <span class="section-title">Firebase Services</span>
+    </div>
+    <div class="section-body">
+      <p>Flip Spark may use Firebase services for the following features:</p>
+      <div class="tag-grid">
+        <span class="tag tag-orange">Leaderboards</span>
+        <span class="tag tag-orange">Analytics</span>
+        <span class="tag tag-orange">Game Rewards</span>
+      </div>
+      <p style="margin-top:14px;">For more details, review the <a href="https://firebase.google.com/support/privacy" target="_blank" class="ext-link">Firebase Privacy Policy ↗</a></p>
+    </div>
+  </div>
+
+  <div id="s5" class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <div class="section-icon" style="background:rgba(236,72,153,0.12);">📢</div>
+      <span class="section-title">Ads</span>
+    </div>
+    <div class="section-body">
+      <p>Flip Spark may display the following types of advertisements:</p>
+      <div class="tag-grid">
+        <span class="tag tag-pink">Rewarded Ads</span>
+        <span class="tag tag-pink">Interstitial Ads (Optional Future)</span>
+      </div>
+      <p style="margin-top:14px;">Ad providers may collect device identifiers for ad delivery and analytics purposes.</p>
+    </div>
+  </div>
+
+  <div id="s6" class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <div class="section-icon" style="background:rgba(59,130,246,0.12);">💾</div>
+      <span class="section-title">Local Storage</span>
+    </div>
+    <div class="section-body">
+      <p>Game data is stored locally on your device and is never shared externally:</p>
+      <div class="tag-grid">
+        <span class="tag tag-blue">Game Progress</span>
+        <span class="tag tag-blue">Coins</span>
+        <span class="tag tag-blue">Levels</span>
+        <span class="tag tag-blue">Settings</span>
+        <span class="tag tag-blue">Unlocked Themes</span>
+        <span class="tag tag-blue">Achievements</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="s7" class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <div class="section-icon" style="background:rgba(124,58,237,0.12);">🔗</div>
+      <span class="section-title">Data Sharing</span>
+    </div>
+    <div class="section-body">
+      <div class="no-collect">🚫 &nbsp;We do not sell user data — ever</div>
+      <p>We may share limited non-personal data only with the following service providers to operate the app:</p>
+      <div class="tag-grid">
+        <span class="tag tag-purple">Firebase Services</span>
+        <span class="tag tag-purple">Analytics Providers</span>
+        <span class="tag tag-purple">Ad Providers</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="s8" class="section">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <div class="section-icon" style="background:rgba(34,197,94,0.12);">🔒</div>
+      <span class="section-title">Security</span>
+    </div>
+    <div class="section-body">
+      <p>We implement appropriate security measures to protect your data and ensure safe gameplay for all users, including children.</p>
+    </div>
+  </div>
+
+  <div id="s9" class="section">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <div class="section-icon" style="background:rgba(255,179,71,0.12);">👨‍👩‍👧</div>
+      <span class="section-title">Parent Controls</span>
+    </div>
+    <div class="section-body">
+      <p>Flip Spark provides built-in parental features to keep your child's experience safe and managed:</p>
+      <div class="tag-grid">
+        <span class="tag tag-yellow">Screen Time Limit</span>
+        <span class="tag tag-yellow">Disable Ads</span>
+        <span class="tag tag-yellow">Kid Safe Mode</span>
+        <span class="tag tag-yellow">Offline Gameplay</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="s10" class="section">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <div class="section-icon" style="background:rgba(255,107,53,0.12);">⚙️</div>
+      <span class="section-title">User Rights</span>
+    </div>
+    <div class="section-body">
+      <p>Users have full rights over their data. You may request any of the following at any time:</p>
+      <div class="tag-grid">
+        <span class="tag tag-orange">Data Deletion</span>
+        <span class="tag tag-orange">Data Export</span>
+        <span class="tag tag-orange">Disable Analytics</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="s11" class="section">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <div class="section-icon" style="background:rgba(124,58,237,0.12);">🔄</div>
+      <span class="section-title">Changes to Policy</span>
+    </div>
+    <div class="section-body">
+      <p>We may update this Privacy Policy periodically. Any updates will be reflected on this page with a revised date. We encourage you to review this policy regularly.</p>
+    </div>
+  </div>
+
+  <div id="s12" class="section">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <div class="section-icon" style="background:rgba(59,130,246,0.12);">✉️</div>
+      <span class="section-title">Contact</span>
+    </div>
+    <div class="section-body">
+      <div class="contact-card">
+        <div class="contact-row">
+          <strong>Developer</strong>
+          <span>Lokesh Choudhary</span>
+        </div>
+        <div class="contact-row">
+          <strong>App</strong>
+          <span>Flip Spark — Memory Matching Game</span>
+        </div>
+        <div class="contact-row">
+          <strong>Email</strong>
+          <a href="mailto:lokeshchoudhary2026@gmail.com" class="ext-link">lokeshchoudhary2026@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">🦊 Flip Spark</div>
+      <div class="footer-divider"></div>
+      <div class="footer-copy">© 2026 Flip Spark — All Rights Reserved</div>
+      <div class="footer-copy" style="font-size:12px;margin-top:4px;">Memory Matching Game for Kids</div>
+    </div>
+  </div>
+
 </div>
 
-<p>
-Flip Spark — Memory Matching Game for Kids respects your privacy. 
-This Privacy Policy explains how we collect, use, and protect your information.
-</p>
+<script>
+  // Generate floating particles
+  const container = document.getElementById('particles');
+  const colors = ['#ff6b35','#ffb347','#7c3aed','#60a5fa','#4ade80'];
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 5 + 2;
+    p.style.cssText = `
+      width:${size}px;
+      height:${size}px;
+      left:${Math.random()*100}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${Math.random()*20+15}s;
+      animation-delay:${Math.random()*15}s;
+    `;
+    container.appendChild(p);
+  }
 
-<h2>1. Information We Collect</h2>
-
-<p>Flip Spark does not collect personal information such as:</p>
-
-<ul>
-<li>Name</li>
-<li>Email Address</li>
-<li>Phone Number</li>
-</ul>
-
-<p>
-Unless voluntarily provided for features like leaderboard nickname.
-</p>
-
-<h2>2. Automatically Collected Information</h2>
-
-<ul>
-<li>Device Information</li>
-<li>Operating System</li>
-<li>App Version</li>
-<li>Country (Leaderboard)</li>
-</ul>
-
-<p>This helps improve performance and user experience.</p>
-
-<h2>3. Children's Privacy</h2>
-
-<p>
-Flip Spark is designed for kids. We comply with:
-</p>
-
-<ul>
-<li>COPPA</li>
-<li>GDPR</li>
-<li>Google Play Families Policy</li>
-</ul>
-
-<p>
-We do not knowingly collect personal data from children under 13.
-</p>
-
-<h2>4. Firebase Services</h2>
-
-<p>Flip Spark uses Firebase for:</p>
-
-<ul>
-<li>Leaderboards</li>
-<li>Analytics</li>
-<li>Rewards</li>
-</ul>
-
-<p>
-Firebase Privacy Policy:
-</p>
-
-<p>
-https://firebase.google.com/support/privacy
-</p>
-
-<h2>5. Ads</h2>
-
-<p>Flip Spark may show:</p>
-
-<ul>
-<li>Reward Ads</li>
-<li>Banner Ads</li>
-</ul>
-
-<p>
-Ad providers may collect device identifiers for ad delivery.
-</p>
-
-<h2>6. Local Storage</h2>
-
-<p>We store data locally:</p>
-
-<ul>
-<li>Game Progress</li>
-<li>Coins</li>
-<li>Levels</li>
-<li>Settings</li>
-</ul>
-
-<h2>7. Data Sharing</h2>
-
-<p>We do not sell user data.</p>
-
-<p>We only share with:</p>
-
-<ul>
-<li>Firebase</li>
-<li>Analytics Providers</li>
-<li>Ad Providers</li>
-</ul>
-
-<h2>8. Security</h2>
-
-<p>
-We implement secure data storage and encryption where applicable.
-</p>
-
-<h2>9. Parent Controls</h2>
-
-<ul>
-<li>Screen Time Limit</li>
-<li>Disable Ads</li>
-<li>Kid Safe Mode</li>
-</ul>
-
-<h2>10. User Rights</h2>
-
-<p>Users may request:</p>
-
-<ul>
-<li>Data deletion</li>
-<li>Data export</li>
-<li>Disable analytics</li>
-</ul>
-
-<h2>11. Changes to Policy</h2>
-
-<p>
-We may update this Privacy Policy periodically.
-</p>
-
-<h2>12. Contact</h2>
-
-<p>
-Developer: Lokesh Choudhary<br/>
-App: Flip Spark — Memory Matching Game<br/>
-Email: lokeshchoudhary2026@gmail.com
-</p>
-
-<div class="footer">
-<p>© 2026 Flip Spark — All Rights Reserved</p>
-</div>
-
-</div>
-
+  // Smooth reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.style.opacity = '1';
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+</script>
 </body>
 </html>
